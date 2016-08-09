@@ -1,0 +1,30 @@
+version: '2'
+services:
+
+    moodle:
+        image: moodle31
+        build:
+            context: ./moodle
+        links:
+            - db:moodledb
+        env_file:
+            - ./common.env
+            - ./moodle.env
+        environment:
+            - MYSQL_HOST=moodledb
+        ports:
+            - "80:80"
+        volumes:
+            - /root/extVolumes/moodledata:/var/moodledata
+
+
+    db:
+        image: mysql57-for-moodle
+        #image: mysql/mysql-server:5.7
+        build:
+            context: ./mysql/5.7
+        env_file:
+            - ./common.env
+            - ./db.env
+        volumes:
+            - /root/extVolumes/moodleDB:/var/lib/mysql

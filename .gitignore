@@ -1,0 +1,2 @@
+#Ignore postfix related stuff for now, maybe later once you've found what's not working
+moodle/postfix.*
