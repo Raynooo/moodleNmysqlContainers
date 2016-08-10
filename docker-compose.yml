@@ -15,7 +15,7 @@ services:
         ports:
             - "80:80"
         volumes:
-            - /root/extVolumes/moodledata:/var/moodledata
+            - /var/ctnrSharedVols/moodledata:/var/moodledata
 
 
     db:
@@ -27,4 +27,4 @@ services:
             - ./common.env
             - ./db.env
         volumes:
-            - /root/extVolumes/moodleDB:/var/lib/mysql
+            - /var/ctnrSharedVols/moodleDB:/var/lib/mysql

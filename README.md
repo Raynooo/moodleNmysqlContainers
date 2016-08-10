@@ -1,6 +1,4 @@
-# moodleNmysqlContainers
-
-TODO
+# moodleNmysqlContainers, moodle and mysql servers in docker container
 
 ##What it does
 
@@ -13,14 +11,21 @@ The *docker-compose.yml* config file in this project's root folder has the recip
 
 ##How to run it
 
-To build the images (if you have **docker-compose** installed and running), from inside its folder simply type :
+To build the images (if you have **docker-compose** installed and running), from inside its folder simply type:
 ```
 docker-compose build moodle
 ```
 
-###Changing shared directories
+Once the images are built, you can run both services using this command:
+```
+docker-compose up moodle
+```
 
-TODO
+###Changing shared folders
+
+Both container share a specific folder with the host to avoid losing courses and user generated data once the containers are killed.
+The path to these shared folders can be changed in the *docker-compose.yml* file.
+ 
 
 ###Changing moodle server's address
 
@@ -30,7 +35,7 @@ TODO
 
 The dockerfiles used in this project are HEAVILY based on these two projects :
 
-- jauer's [moodle repository](https://hub.docker.com/r/jauer/moodle/)
-- MySQL's official [Server Docker Images](https://github.com/mysql/mysql-docker)
+* jauer's [moodle repository](https://hub.docker.com/r/jauer/moodle/)
+* MySQL's official [Server Docker Images](https://github.com/mysql/mysql-docker)
 
 Both were modified to either use a specific version of a software or follow moodle's best practices.
