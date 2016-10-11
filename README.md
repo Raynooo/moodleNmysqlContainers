@@ -11,6 +11,20 @@ The *docker-compose.yml* config file in this project's root folder has the recip
 
 ##How to run it
 
+There are two steps to follow to make sure everything is set up according to you local configuration
+
+###Changing shared folders
+
+Both container share a specific folder with the host to avoid losing courses and user generated data once the containers are killed.
+The path to these shared folders can be changed in the *docker-compose.yml* file.
+
+
+###Changing moodle server's address
+
+Right now the server's address is written in the **moodle.env** file. The value of *MOODLE_URL* must be changed according to your configuration.
+
+###Building and running
+
 To build the images (if you have **docker-compose** installed and running), from inside its folder simply type:
 ```
 docker-compose build moodle
@@ -20,16 +34,6 @@ Once the images are built, you can run both services using this command:
 ```
 docker-compose up moodle
 ```
-
-###Changing shared folders
-
-Both container share a specific folder with the host to avoid losing courses and user generated data once the containers are killed.
-The path to these shared folders can be changed in the *docker-compose.yml* file.
- 
-
-###Changing moodle server's address
-
-TODO
 
 ## Sources
 
